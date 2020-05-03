@@ -2,11 +2,10 @@ from awesome.plugins.bullshit.generator import 狗屁不通
 from nonebot import on_command, CommandSession
 
 
-@on_command('bullshit', aliases=('狗屁不通'))
+@on_command('bullshit', aliases=('狗屁不通', '狗屁不通生成器'))
 async def bullshit(session: CommandSession):
     theme = session.get('theme', prompt='你想得到什么主题的内容呢？')
-    passage = await get_bullshit(theme)
-    bullshit_send = passage;
+    bullshit_send = await get_bullshit(theme)
     await session.send(bullshit_send)
 
 
@@ -23,4 +22,4 @@ async def _(session: CommandSession):
 
 
 async def get_bullshit(theme):
-    return 狗屁不通(theme)
+    return '    ' + 狗屁不通(theme)

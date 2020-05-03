@@ -46,7 +46,7 @@ def 另起一段():
 
 def 狗屁不通(theme):
     tmp = str()
-    while (len(tmp) < 600):
+    while (len(tmp) < 500):
         分支 = random.randint(0, 100)
         if 分支 < 5:
             tmp += 另起一段()

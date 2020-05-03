@@ -9,14 +9,8 @@ async def hitokoto(session: CommandSession):
 
 
 async def get_hitokoto():
-    info = get_info()
-    str = info[0] + ' —— ' + info[1]
-    return str
-
-
-def get_info():
     url = 'https://v1.hitokoto.cn'
     res = requests.get(url)
-    info_sen = res.json()['hitokoto']
-    info_src = res.json()['from']
-    return [info_sen, info_src]
+    info_content = res.json()['hitokoto']
+    info_from = res.json()['from']
+    return info_content + ' —— ' + info_from;

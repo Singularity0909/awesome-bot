@@ -10,11 +10,6 @@ async def daily(session: CommandSession):
 
 
 async def get_daily():
-    daily_sentence = get_info()
-    return daily_sentence
-
-
-def get_info():
     url = 'http://open.iciba.com/dsapi/'
     res = requests.get(url)
     content_e = res.json()['content']

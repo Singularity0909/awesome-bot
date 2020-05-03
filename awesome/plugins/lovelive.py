@@ -9,11 +9,5 @@ async def lovelive(session: CommandSession):
 
 
 async def get_lovelive():
-    info = get_info()
-    return info
-
-
-def get_info():
     url = 'https://api.lovelive.tools/api/SweetNothings'
-    res = requests.get(url)
-    return res.text
+    return requests.get(url).text

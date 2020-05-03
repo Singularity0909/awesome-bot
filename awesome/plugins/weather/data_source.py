@@ -8,10 +8,10 @@ from bs4 import BeautifulSoup
 
 async def get_weather(city_name):
     city_code = get_city_code(city_name)
-    info = get_info(city_code)
-    if info:
+    weather_info = get_info(city_code)
+    if weather_info:
         res = city_name + '的天气预报如下\n'
-        for each in info:
+        for each in weather_info:
             res += '\n' + each[0] + ' ' + each[1] + ' '
             if each[2]:
                 res += each[2] + '/'

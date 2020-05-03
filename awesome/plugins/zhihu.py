@@ -10,7 +10,7 @@ async def news(session: CommandSession):
         data = await resp.json()
         stories = data.get('stories')
         if not stories:
-            await session.send('暂时没有数据, 或者服务无法访问')
+            await session.send('暂时没有数据，或者服务无法访问')
             return
         reply = ''
         for story in stories:
