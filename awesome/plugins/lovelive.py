@@ -2,7 +2,7 @@ import requests
 from nonebot import on_command, CommandSession
 
 
-@on_command('lovelive', aliases=('土味情话'))
+@on_command('lovelive', aliases=('土味情话'), only_to_me=False)
 async def lovelive(session: CommandSession):
     lovelive_send = await get_lovelive()
     await session.send(lovelive_send)

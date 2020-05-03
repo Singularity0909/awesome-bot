@@ -2,7 +2,7 @@ import requests
 from nonebot import on_command, CommandSession
 
 
-@on_command('daily', aliases=('每日一句'))
+@on_command('daily', aliases=('每日一句'), only_to_me=False)
 async def daily(session: CommandSession):
     daily_send = await get_daily()
     await session.send(daily_send[0])

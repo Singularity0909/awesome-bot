@@ -2,7 +2,7 @@ import aiohttp
 from nonebot import on_command, CommandSession
 
 
-@on_command('zhihu', aliases=('知乎', '知乎日报'))
+@on_command('zhihu', aliases=('知乎日报'), only_to_me=False)
 async def news(session: CommandSession):
     STORY_URL_FORMAT = 'https://daily.zhihu.com/story/{}'
     async with aiohttp.request('GET', 'https://news-at.zhihu.com/api/4/news/latest', headers={

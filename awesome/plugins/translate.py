@@ -2,9 +2,10 @@ import time
 
 import requests
 from nonebot import on_command, CommandSession
+from nonebot import on_natural_language, NLPSession, IntentCommand
 
 
-@on_command('translate', aliases=('翻译'))
+@on_command('translate', aliases=('翻译'), only_to_me=False)
 async def translate(session: CommandSession):
     origin_text = session.get('text', prompt='你想翻译什么内容呢？')
     translate_send = await get_translation(origin_text)

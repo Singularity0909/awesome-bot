@@ -2,7 +2,7 @@ import requests
 from nonebot import on_command, CommandSession
 
 
-@on_command('joke', aliases=('笑话', '讲个笑话'))
+@on_command('joke', aliases=('讲个笑话', '来个笑话'), only_to_me=False)
 async def joke(session: CommandSession):
     joke_send = await get_joke()
     await session.send(joke_send)
