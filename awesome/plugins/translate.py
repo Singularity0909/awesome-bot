@@ -2,7 +2,6 @@ import time
 
 import requests
 from nonebot import on_command, CommandSession
-from nonebot import on_natural_language, NLPSession, IntentCommand
 
 
 @on_command('translate', aliases=('翻译'), only_to_me=False)
