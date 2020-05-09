@@ -4,13 +4,14 @@ from nonebot import on_command, CommandSession
 
 @on_command('bullshit', aliases=('狗屁不通', '狗屁不通生成器'), only_to_me=False)
 async def bullshit(session: CommandSession):
-    theme = session.get('theme', prompt='你想得到什么主题的内容呢？')
+    theme = session.get('theme', prompt='[CQ:at,qq=' + str(user_id) + '] ' + '你想得到什么主题的内容呢？')
     bullshit_send = await get_bullshit(theme)
     await session.send(bullshit_send)
 
 
 @bullshit.args_parser
 async def _(session: CommandSession):
+    user_id = session.event.user_id
     stripped_arg = session.current_arg_text.strip()
     if session.is_first_run:
         if stripped_arg:

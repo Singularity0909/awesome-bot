@@ -2,7 +2,7 @@ import ahocorasick
 
 
 patterns = []
-with open('awesome/data.txt', 'r', encoding='UTF-8') as f:
+with open('awesome/data.txt', 'r', encoding='utf-8') as f:
     while True:
         pattern = f.readline()
         if not pattern:
