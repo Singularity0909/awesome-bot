@@ -33,4 +33,4 @@ async def _(session: NLPSession):
         if word.flag == 'ns':
             city = word.word
             break
-    return IntentCommand(90.0, 'weather', current_arg=city or '')
+    return IntentCommand(70.0, 'weather', current_arg=city or '')

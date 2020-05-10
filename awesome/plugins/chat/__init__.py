@@ -28,4 +28,4 @@ async def chat(session: CommandSession):
 
 @on_natural_language
 async def _(session: NLPSession):
-    return IntentCommand(60.0, 'chat', args={'message': session.msg_text})
+    return IntentCommand(80.0, 'chat', args={'message': session.msg_text})
