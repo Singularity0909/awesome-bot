@@ -19,6 +19,8 @@ EXPR_DONT_UNDERSTAND = (
 @on_command('chat')
 async def chat(session: CommandSession):
     message = session.state.get('message')
+    if message.strip() == '':
+        return
     reply = await Chat.request(text=message)
     if reply:
         await session.send(escape(reply), at_sender=True)
