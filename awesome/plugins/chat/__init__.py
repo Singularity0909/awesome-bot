@@ -5,7 +5,7 @@ from nonebot import on_command, CommandSession
 from nonebot import on_natural_language, NLPSession, IntentCommand
 from nonebot.helpers import render_expression
 
-from .chat import call_txchat_api
+from .chat import Chat
 
 EXPR_DONT_UNDERSTAND = (
     '我现在还不太明白你在说什么呢，但没关系，以后的我会变得更强呢！',
@@ -19,14 +19,11 @@ EXPR_DONT_UNDERSTAND = (
 @on_command('chat')
 async def chat(session: CommandSession):
     message = session.state.get('message')
-    user_id = session.event.user_id
-    reply = await call_txchat_api(session, message)
+    reply = await Chat.request(text=message)
     if reply:
-        time.sleep(1)
-        # await session.send(escape(reply))
-        await session.send('[CQ:at,qq=' + str(user_id) + '] ' + escape(reply))
+        await session.send(escape(reply), at_sender=True)
     else:
-        await session.send('[CQ:at,qq=' + str(user_id) + '] ' + render_expression(EXPR_DONT_UNDERSTAND))
+        await session.send(render_expression(EXPR_DONT_UNDERSTAND), at_sender=True)
 
 
 @on_natural_language

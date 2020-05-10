@@ -5,7 +5,7 @@ from nonebot import on_command, CommandSession
 @on_command('joke', aliases=('讲个笑话', '来个笑话'), only_to_me=False)
 async def joke(session: CommandSession):
     joke_send = await get_joke()
-    await session.send(joke_send)
+    await session.send(joke_send, at_sender=True)
 
 
 async def get_joke():

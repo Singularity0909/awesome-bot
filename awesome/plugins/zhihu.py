@@ -16,8 +16,5 @@ async def news(session: CommandSession):
         for story in stories:
             url = STORY_URL_FORMAT.format(story['id'])
             title = story.get('title', '未知内容')
-            # images = story.get('images')
-            # print(images)
-            # reply += f'\n{title}\n{url}\n [CQ:image,file={images[0]}] \n'
             reply += f'\n{title}\n{url}\n'
-        await session.send(reply)
+        await session.send(reply.strip())

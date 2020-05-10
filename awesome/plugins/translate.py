@@ -7,9 +7,9 @@ from nonebot import on_command, CommandSession
 @on_command('translate', aliases=('翻译'), only_to_me=False)
 async def translate(session: CommandSession):
     user_id = session.event.user_id
-    origin_text = session.get('text', prompt='[CQ:at,qq=' + str(user_id) + '] ' + '你想翻译什么内容呢？')
+    origin_text = session.get('text', prompt='你想翻译什么内容呢？')
     translate_send = await get_translation(origin_text)
-    await session.send(translate_send)
+    await session.send(translate_send, at_sender=True)
 
 
 @translate.args_parser

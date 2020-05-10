@@ -7,10 +7,9 @@ from .data_source import get_weather
 
 @on_command('weather', aliases=('天气', '天气预报', '查天气'))
 async def weather(session: CommandSession):
-    user_id = session.event.user_id
-    city = session.get('city', prompt='[CQ:at,qq=' + str(user_id) + '] ' + '你想查询哪个城市的天气呢？')
+    city = session.get('city', prompt='你想查询哪个城市的天气呢？')
     weather_report = await get_weather(city)
-    await session.send('[CQ:at,qq=' + str(user_id) + '] ' + weather_report)
+    await session.send(weather_report, at_sender=True)
 
 
 @weather.args_parser

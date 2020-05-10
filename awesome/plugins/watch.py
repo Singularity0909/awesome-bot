@@ -32,11 +32,7 @@ async def _(session: NLPSession):
             await bot.delete_msg(**session.event)
         except:
             pass
-        return IntentCommand(
-            90.0,
-            'automaton',
-            args={'user_id': user_id}
-        )
+        return IntentCommand(90.0, 'automaton', current_arg=str(user_id))
     if record is None or msg != record.last_msg:
         record = Record(msg, user_id, repeat_count=1)
         records[group_id] = record
