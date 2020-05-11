@@ -1,10 +1,13 @@
-jieba==0.42.1
 httpx==0.12.1
-nonebot==1.6.0
-pyahocorasick==1.4.0
 requests==2.23.0
+pyahocorasick==1.4.0
 aiocqhttp==1.2.5
-ahocorasick==0.9
+nltk==3.5
+numpy==1.18.4
+jieba==0.42.1
+nonebot==1.6.0
 aiohttp==3.6.2
+ahocorasick==0.9
 beautifulsoup4==4.9.0
 dataclasses==0.7
+scikit_learn==0.22.2.post1
