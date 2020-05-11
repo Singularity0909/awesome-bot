@@ -1,10 +1,12 @@
-import string
-import nonebot
-import time
-from urllib.parse import urlencode
-import httpx
 import hashlib
+import string
+import time
 from random import randint
+from urllib.parse import urlencode
+
+import httpx
+import nonebot
+
 
 class Chat(object):
     target_url = 'https://api.ai.qq.com/fcgi-bin/nlp/nlp_textchat'

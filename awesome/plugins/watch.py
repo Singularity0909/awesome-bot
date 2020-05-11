@@ -4,9 +4,9 @@ from typing import Dict
 
 import nonebot
 import nonebot.permission as perm
-from awesome import trie
+from awesome import ac_filter
+from awesome import bayes_filter
 from nonebot import on_natural_language, NLPSession, IntentCommand
-from nonebot.helpers import context_id
 
 
 @dataclass
@@ -25,14 +25,15 @@ async def _(session: NLPSession):
     user_id = session.event.user_id
     msg = session.msg
     record = records.get(group_id)
-    match = trie.iter(msg)
-    if len(list(match)):
+    ac_match = ac_filter.trie.iter(msg)
+    bayes_match = bayes_filter.check(msg)
+    if len(list(ac_match)) or bayes_match:
         bot = nonebot.get_bot()
         try:
             await bot.delete_msg(**session.event)
         except:
             pass
-        return IntentCommand(90.0, 'automaton', current_arg=str(user_id))
+        return IntentCommand(90.0, 'filter', current_arg=str(user_id))
     if record is None or msg != record.last_msg:
         record = Record(msg, user_id, repeat_count=1)
         records[group_id] = record

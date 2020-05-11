@@ -1,15 +1,7 @@
-import ahocorasick
+from awesome.ac import Ac
+from awesome.bayes import Bayes
 
-
-patterns = []
-with open('awesome/data/patterns.txt', 'r', encoding='utf-8') as f:
-    while True:
-        pattern = f.readline()
-        if not pattern:
-            break
-        patterns.append(pattern.strip('\n'))
-
-trie = ahocorasick.Automaton()
-for index, word in enumerate(patterns):
-    trie.add_word(word, (index, word))
-trie.make_automaton()
+ac_filter = Ac()
+ac_filter.build()
+bayes_filter = Bayes()
+bayes_filter.build()
