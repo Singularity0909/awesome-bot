@@ -1,0 +1,10 @@
+jieba==0.42.1
+httpx==0.12.1
+nonebot==1.6.0
+pyahocorasick==1.4.0
+requests==2.23.0
+aiocqhttp==1.2.5
+ahocorasick==0.9
+aiohttp==3.6.2
+beautifulsoup4==4.9.0
+dataclasses==0.7
