@@ -4,12 +4,15 @@ import time
 from random import randint
 from urllib.parse import urlencode
 
+import requests
 import httpx
 import nonebot
 
 
-class Chat(object):
-    target_url = 'https://api.ai.qq.com/fcgi-bin/nlp/nlp_textchat'
+class AI(object):
+    url_textchat = 'https://api.ai.qq.com/fcgi-bin/nlp/nlp_textchat'
+    url_img_porn = 'https://api.ai.qq.com/fcgi-bin/vision/vision_porn'
+    url_img_terrorism = 'https://api.ai.qq.com/fcgi-bin/image/image_terrorism'
     app_id = nonebot.get_bot().config.APP_ID
     app_key = nonebot.get_bot().config.APP_KEY
     nonce_str_example = 'fa577ce340859f9fe'
@@ -34,7 +37,7 @@ class Chat(object):
         return data.upper()
 
     @classmethod
-    async def request(self, text):
+    async def text_request(self, text):
         req_data = {
             'app_id': self.app_id,
             'time_stamp': int(self.ct()),
@@ -45,10 +48,35 @@ class Chat(object):
         req_data['sign'] = self.sign(req_data)
         req_data = sorted(req_data.items())
         requests = httpx.AsyncClient()
-        result = await requests.get(self.target_url, params=req_data)
+        result = await requests.get(self.url_textchat, params=req_data)
         await requests.aclose()
         result = result.json()
         print(result)
         if result['ret'] == 0:
             return result['data']['answer']
         return None
+
+    @classmethod
+    async def img_request(self, img):
+        req_data = {
+            'app_id': self.app_id,
+            'time_stamp': int(self.ct()),
+            'nonce_str': self.get_nonce_str(),
+            'image': img,
+        }
+        req_data['sign'] = self.sign(req_data)
+        req_data = sorted(req_data.items())
+        result = requests.post(self.url_img_porn, data=req_data).json()
+        print(result)
+        if result['ret'] == 0:
+            for tag in result['data']['tag_list']:
+                if tag.get('tag_name') == 'porn' and tag.get('tag_confidence') > 83:
+                    return 1
+        result = requests.post(self.url_img_terrorism, data=req_data).json()
+        print(result)
+        tag_list = ['terrorists', 'knife', 'guns', 'blood', 'fire']
+        if result['ret'] == 0:
+            for tag in result['data']['tag_list']:
+                if tag.get('tag_name') in tag_list and tag.get('tag_confidence') >= 83:
+                    return 2
+        return 0

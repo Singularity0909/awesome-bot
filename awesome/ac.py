@@ -1,7 +1,7 @@
 import ahocorasick
 
 
-class Ac:
+class AC:
     patterns = []
     trie = None
 

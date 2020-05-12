@@ -1,6 +1,6 @@
 # 一款基于 NoneBot 的多功能 QQ 聊天机器人
 
-这个项目作为 2019-2020 第二学期数据结构课程设计大作业选题，由我的同学 [@8421BCD](https://github.com/8421BCD) 、 [@HoralG](https://github.com/HoralG) 和我 [@Singularity0909](https://github.com/Singularity0909/) 共同完成，是一款基于 NoneBot 的功能型 QQ 聊天机器人核心，具有智能闲聊、过滤垃圾信息、提供天气预报查询服务等常用功能，目前以机器人方天宇 (QQ: `2737676753`) 作为表现层。
+这个项目作为 2019-2020 第二学期数据结构课程设计大作业选题，由我的同学 [@8421BCD](https://github.com/8421BCD) 、 [@HoralG](https://github.com/HoralG) 和我 [@Singularity0909](https://github.com/Singularity0909/) 共同完成，是一款基于 NoneBot 的功能型 QQ 聊天机器人核心，具有智能闲聊、过滤有害信息、提供天气预报查询服务等常用功能，目前以机器人方天宇 (QQ: `2737676753`) 作为表现层。
 
 [NoneBot](https://nonebot.cqp.moe/) 是一套基于 [CoolQ](https://cqp.cc/) 的 Python 异步 QQ 机器人框架，它会对 QQ 机器人收到的消息进行解析和处理，并以插件化的形式分发给消息所对应的命令处理器和自然语言处理器来完成具体的功能。
 
@@ -38,6 +38,7 @@ COMMAND_START = {'', '/', '$'} # 命令的起始字符，默认为空字符、/ 
 API_ROOT = 'http://127.0.0.1:5700' # 调用 CQHTTP API 所指定的 IP 和端口，注意要与 CQHTTP 配置一致，默认为 127.0.0.1:5700
 APP_ID = '' # 调用腾讯 AI 功能的 APPID
 APP_KEY = '' # 调用腾讯 AI 功能的 APPKEY
+IMG_DIR = '' # CoolQ 图片消息存放路径，例如 D:\CoolQ Pro\data\image
 ```
 
 ## 功能模块
@@ -57,6 +58,18 @@ APP_KEY = '' # 调用腾讯 AI 功能的 APPKEY
 ![](https://oss.macrohard.cn/img/screenshot/20200511122803.png)
 
 [**测试效果**](https://oss.macrohard.cn/img/screenshot/20200511120735.gif)
+
+### 色情暴恐图片信息过滤
+
+此功能仅限群聊且无需 @，如需自动撤回违规信息请为机器人开启管理员权限。
+
+依托腾讯领先的 DeepEye 图片鉴黄技术，准确快速输出每张目标图片属于“正常”、“性感”、“色情”的概率，有效帮助用户鉴别色情图片。该技术大幅提升了色情内容的打击覆盖面和打击效率，成倍地解放甄别人力，助力网络环境更健康。
+
+腾讯暴恐图片识别基于腾讯领先的深度学习引擎，对用户上传的图片进行自动甄别，暴恐识别算法会返回“疑似暴恐”的字段，对血腥、暴力等图片进行自动打击，用AI捍卫互联网安全，助力建立安全、健康的互联网环境。
+
+获取详情可访问[此处](https://ai.qq.com/product/terror.shtml)，如需使用请在 `config.py` 中填写腾讯 AI 的 APPID 及 APPKEY 。
+
+[**测试效果**](https://oss.macrohard.cn/img/screenshot/20200512192229.gif)
 
 ### 智能闲聊
 
@@ -116,7 +129,7 @@ APP_KEY = '' # 调用腾讯 AI 功能的 APPKEY
 
 命令关键词：【bullshit / 狗屁不通 / 狗屁不通生成器】+ 空格 + 主题。
 
-核心功能引用自 [meng ke](https://github.com/menzi11) 的项目 [BullshitGenerator](https://github.com/menzi11/BullshitGenerator) 。
+核心功能引用自 [@meng ke](https://github.com/menzi11) 的项目 [BullshitGenerator](https://github.com/menzi11/BullshitGenerator) 。
 
 [**测试效果**](https://oss.macrohard.cn/img/screenshot/20200512134418.gif)
 
