@@ -13,9 +13,9 @@ from PIL import Image
 import nonebot
 import nonebot.permission as perm
 from nonebot import on_natural_language, NLPSession, IntentCommand
-from awesome.ac import AC
-from awesome.bayes import Bayes
-from awesome.ai import AI
+from awesome.utils.ac import AC
+from awesome.utils.bayes import Bayes
+from awesome.utils.ai import AI
 
 
 ac_filter = AC()
