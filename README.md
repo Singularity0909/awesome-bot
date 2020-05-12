@@ -56,9 +56,7 @@ APP_KEY = '' # 调用腾讯 AI 功能的 APPKEY
 
 ![](https://oss.macrohard.cn/img/screenshot/20200511122803.png)
 
-**测试效果**
-
-<img src="https://oss.macrohard.cn/img/screenshot/20200511120735.gif" style="zoom:33%;" />
+[**测试效果**](https://oss.macrohard.cn/img/screenshot/20200511120735.gif)
 
 ### 智能闲聊
 
@@ -68,17 +66,13 @@ APP_KEY = '' # 调用腾讯 AI 功能的 APPKEY
 
 获取详情可访问[此处](https://ai.qq.com/product/nlpchat.shtml)，如需使用请在 `config.py` 中填写腾讯 AI 的 APPID 及 APPKEY 。
 
-**测试效果**
-
-<img src="https://oss.macrohard.cn/img/screenshot/20200512123951.gif" style="zoom:33%;" />
+[**测试效果**](https://oss.macrohard.cn/img/screenshot/20200512123951.gif)
 
 ### 复读机
 
 此功能仅限群聊且无需 @ 。
 
-**测试效果**
-
-<img src="https://oss.macrohard.cn/img/screenshot/20200512125109.gif" style="zoom:33%;" />
+[**测试效果**](https://oss.macrohard.cn/img/screenshot/20200512125109.gif)
 
 ### 天气预报
 
@@ -86,9 +80,7 @@ APP_KEY = '' # 调用腾讯 AI 功能的 APPKEY
 
 命令关键词：【weather / 天气 / 查天气 / 天气预报】+ 空格 + 城市名，若关键词不在开头则调用自然语言处理。
 
-**测试效果**
-
-<img src="https://oss.macrohard.cn/img/screenshot/20200512130754.gif" style="zoom:33%;" />
+[**测试效果**](https://oss.macrohard.cn/img/screenshot/20200512130754.gif)
 
 ### 翻译
 
@@ -96,9 +88,7 @@ APP_KEY = '' # 调用腾讯 AI 功能的 APPKEY
 
 命令关键词：【translate / 翻译 / 翻译一下】+ 空格 + 需要翻译的文本，若文本是中文则翻译结果为英文，否则翻译结果均为中文。
 
-**测试效果**
-
-<img src="https://oss.macrohard.cn/img/screenshot/20200512131804.gif" style="zoom:33%;" />
+[**测试效果**](https://oss.macrohard.cn/img/screenshot/20200512131804.gif)
 
 ### 剪切板
 
@@ -110,9 +100,7 @@ APP_KEY = '' # 调用腾讯 AI 功能的 APPKEY
 
 文本共享服务及其 API 由 [@Lucien](https://github.com/LucienShui) 提供。
 
-**测试效果**
-
-<img src="https://oss.macrohard.cn/img/screenshot/20200512133136.gif" style="zoom:33%;" />
+[**测试效果**](https://oss.macrohard.cn/img/screenshot/20200512133136.gif)
 
 ### 知乎日报
 
@@ -120,9 +108,7 @@ APP_KEY = '' # 调用腾讯 AI 功能的 APPKEY
 
 命令关键词：【zhihu / 知乎 / 知乎日报】。
 
-**测试效果**
-
-<img src="https://oss.macrohard.cn/img/screenshot/20200512133646.gif" style="zoom:33%;" />
+[**测试效果**](https://oss.macrohard.cn/img/screenshot/20200512133646.gif)
 
 ### 狗屁不通生成器
 
@@ -132,9 +118,7 @@ APP_KEY = '' # 调用腾讯 AI 功能的 APPKEY
 
 核心功能引用自 [meng ke](https://github.com/menzi11) 的项目 [BullshitGenerator](https://github.com/menzi11/BullshitGenerator) 。
 
-**测试效果**
-
-<img src="https://oss.macrohard.cn/img/screenshot/20200512134418.gif" style="zoom:33%;" />
+[**测试效果**](https://oss.macrohard.cn/img/screenshot/20200512134418.gif)
 
 ### 每日一句
 
@@ -144,9 +128,7 @@ APP_KEY = '' # 调用腾讯 AI 功能的 APPKEY
 
 内容来源：[爱词霸](http://news.iciba.com/views/dailysentence/) 。
 
-**测试效果**
-
-<img src="https://oss.macrohard.cn/img/screenshot/20200512134926.gif" style="zoom:33%;" />
+[**测试效果**](https://oss.macrohard.cn/img/screenshot/20200512134926.gif)
 
 ### 一言
 
@@ -156,9 +138,7 @@ APP_KEY = '' # 调用腾讯 AI 功能的 APPKEY
 
 内容来源：[一言](https://hitokoto.cn/) 。
 
-**测试效果**
-
-<img src="https://oss.macrohard.cn/img/screenshot/20200512135229.gif" style="zoom:33%;" />
+[**测试效果**](https://oss.macrohard.cn/img/screenshot/20200512135229.gif)
 
 ### 笑话
 
@@ -168,9 +148,7 @@ APP_KEY = '' # 调用腾讯 AI 功能的 APPKEY
 
 内容来源：[RollToolsApi](https://www.mxnzp.com) 。
 
-**测试效果**
-
-<img src="https://oss.macrohard.cn/img/screenshot/20200512135837.gif" style="zoom:33%;" />
+[**测试效果**](https://oss.macrohard.cn/img/screenshot/20200512135837.gif)
 
 ### 土味情话
 
@@ -180,6 +158,4 @@ APP_KEY = '' # 调用腾讯 AI 功能的 APPKEY
 
 内容来源：[渣男：说话的艺术](https://lovelive.tools/) 。
 
-**测试效果**
-
-<img src="https://oss.macrohard.cn/img/screenshot/20200512135827.gif" style="zoom:33%;" />
+[**测试效果**](https://oss.macrohard.cn/img/screenshot/20200512135827.gif)
