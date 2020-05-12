@@ -24,7 +24,7 @@ pip install -r requirements.txt
 python bot.py
 ```
 
-注意，在运行项目前请先将项目根目录下的 `config.py.sample` 重命名为 `config.py` 并完成以下配置。
+注意，在运行项目前请先在项目根目录下创建目录 `tmp` ，并将项目根目录下的 `config.py.sample` 重命名为 `config.py` 并完成以下配置。
 
 ```python
 # config.py
