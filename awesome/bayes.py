@@ -17,13 +17,13 @@ class Bayes:
 
     @classmethod
     def textParse(self, bigString):
-        seg_list = jieba.cut(bigString, cut_all=True)
+        seg_list = jieba.cut(bigString, cut_all=False)
         return [tok for tok in seg_list if len(tok) >= 2]
 
     @classmethod
     def stopwordslist(self):
         stopwords = [line.strip() for line in open(
-            'awesome/data/cn_stopwords.txt', encoding='UTF-8').readlines()]
+            'awesome/data/baidu_stopwords.txt', encoding='utf-8').readlines()]
         return stopwords
 
     @classmethod
@@ -70,11 +70,10 @@ class Bayes:
     def classifyNB(self, vec2Classify, p0Vec, p1Vec, pClass1):
         p1 = sum(vec2Classify * p1Vec) + log(pClass1)
         p0 = sum(vec2Classify * p0Vec) + log(1 - pClass1)
-        if pow(10, p1) / (pow(10, p1) + pow(10, p0)) >= 0.75:
+        if pow(10, p1) / (pow(10, p1) + pow(10, p0)) > 0.5:
             return 1
         else:
             return 0
-
     @classmethod
     def build(self):
         dataPath = r'awesome/data/dataset.txt'
@@ -100,6 +99,7 @@ class Bayes:
             spam_parse.append(self.textParse(t))
         self.vocabList = self.createVocabList(spam_parse)
         trainSet_ini = np.array((range(4000)))
+        randIndex = 0
         trainSet.append(trainSet_ini[:2000])
         for docIndex in trainSet[0]:
             trainMat.append(self.bagOfWords2VecMN(
