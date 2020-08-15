@@ -9,3 +9,4 @@ API_ROOT = 'http://127.0.0.1:5700'
 APP_ID = ''
 APP_KEY = ''
 IMG_DIR = r''
+BAYES = False

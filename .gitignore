@@ -1,3 +1,6 @@
+go-cqhttp
+config.json
+device.json
 config.py
-tmp
 __pycache__
+data

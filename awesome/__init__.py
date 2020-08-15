@@ -3,7 +3,6 @@ import re
 import base64
 from dataclasses import dataclass
 from typing import Dict
-import configparser
 import requests
 import hashlib
 from io import BytesIO
@@ -35,23 +34,22 @@ records: Dict[str, Record] = {}
 
 
 def parse(msg):
-    reg = re.findall('\\[CQ:image,file=(.*?),url=.*?\\]', msg)
+    reg = re.findall('\\[CQ:image,file=.*?,url=(.*?)\\]', msg)
     return len(reg) > 0, reg
 
 
 def compress(file):
-    conf = configparser.ConfigParser()
-    conf.read(f'{nonebot.get_bot().config.IMG_DIR}\\{file}.cqimg')
-    o_size = int(conf.get('image', 'size')) / 1024
-    img_url = conf.get('image', 'url')
-    img_bin = requests.get(img_url).content
+    r = requests.get(file)
+    o_size = int(r.headers.get('Content-Length')) / 1024
+    ext = r.headers.get('Content-Type').split('/')[-1]
+    img_bin = r.content
     im = Image.open(BytesIO(img_bin))
-    md5 = conf.get('image', 'md5')
+    md5 = hashlib.md5(img_bin).hexdigest()
     while o_size > 500:
         width, height = im.size
         im = im.resize((int(width * 0.5), int(height * 0.5)), Image.ANTIALIAS)
-        im.save(f'./tmp/{md5}.{file.split(".")[-1]}')
-        with open(f'./tmp/{md5}.{file.split(".")[-1]}', 'rb') as f:
+        im.save(f'./tmp/{md5}.{ext}')
+        with open(f'./tmp/{md5}.{ext}', 'rb') as f:
             img_bin = f.read()
             o_size = len(img_bin) / 1024
             im = Image.open(BytesIO(img_bin))
@@ -68,8 +66,6 @@ async def _(session: NLPSession):
     illegal = 0
     if has_img:
         for file in files:
-            if file.endswith('.gif'):
-                continue
             illegal = await AI.img_request(img=compress(file))
             if illegal:
                 break
@@ -82,7 +78,7 @@ async def _(session: NLPSession):
         return IntentCommand(90.0, 'img_filter', args={'user_id': user_id, 'type': type})
     record = records.get(group_id)
     ac_match = ac_filter.trie.iter(msg)
-    bayes_match = bayes_filter.check(msg)
+    bayes_match = bayes_filter.check(msg) if nonebot.get_bot().config.BAYES else None
     if len(list(ac_match)) or bayes_match:
         try:
             await bot.delete_msg(**session.event)

@@ -13,4 +13,4 @@ async def get_hitokoto():
     res = requests.get(url)
     info_content = res.json()['hitokoto']
     info_from = res.json()['from']
-    return info_content + ' —— ' + info_from;
+    return info_content + ' —— ' + info_from
