@@ -2,5 +2,6 @@ go-cqhttp
 config.json
 device.json
 config.py
-__pycache__
 data
+log
+__pycache__
