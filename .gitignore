@@ -3,5 +3,5 @@ config.json
 device.json
 config.py
 data
-log
+logs
 __pycache__
