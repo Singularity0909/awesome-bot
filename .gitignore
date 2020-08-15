@@ -1,8 +1,8 @@
-go-cqhttp
-config.json
-device.json
-config.py
-data
-logs
+/go-cqhttp
+/config.json
+/device.json
+/config.py
+/data
+/logs
 __pycache__
 .DS_Store
