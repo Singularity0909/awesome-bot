@@ -48,8 +48,8 @@ def compress(file):
     while o_size > 500:
         width, height = im.size
         im = im.resize((int(width * 0.5), int(height * 0.5)), Image.ANTIALIAS)
-        im.save(f'./tmp/{md5}.{ext}')
-        with open(f'./tmp/{md5}.{ext}', 'rb') as f:
+        im.save(f'{IMG_DIR}/{md5}.{ext}')
+        with open(f'{IMG_DIR}/{md5}.{ext}', 'rb') as f:
             img_bin = f.read()
             o_size = len(img_bin) / 1024
             im = Image.open(BytesIO(img_bin))
