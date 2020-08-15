@@ -48,8 +48,8 @@ def compress(file):
     while o_size > 500:
         width, height = im.size
         im = im.resize((int(width * 0.5), int(height * 0.5)), Image.ANTIALIAS)
-        im.save(f'{IMG_DIR}/{md5}.{ext}')
-        with open(f'{IMG_DIR}/{md5}.{ext}', 'rb') as f:
+        im.save(f'{nonebot.get_bot().config.IMG_DIR}/{md5}.{ext}')
+        with open(f'{nonebot.get_bot().config.IMG_DIR}/{md5}.{ext}', 'rb') as f:
             img_bin = f.read()
             o_size = len(img_bin) / 1024
             im = Image.open(BytesIO(img_bin))
@@ -78,7 +78,7 @@ async def _(session: NLPSession):
         return IntentCommand(90.0, 'img_filter', args={'user_id': user_id, 'type': type})
     record = records.get(group_id)
     ac_match = ac_filter.trie.iter(msg)
-    bayes_match = bayes_filter.check(msg) if nonebot.get_bot().config.BAYES else None
+    bayes_match = bayes_filter.check(msg) if bot.config.BAYES else None
     if len(list(ac_match)) or bayes_match:
         try:
             await bot.delete_msg(**session.event)
