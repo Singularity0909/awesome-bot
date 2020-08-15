@@ -28,7 +28,7 @@ python bot.py
 
 - 安装 `pyahocorasick` 时可能报错，需要先[安装依赖组件](https://sn9.us/file/1445568-239446865)。
 
-- 在运行项目前请先在项目根目录下创建目录 `tmp` 。
+- 2020.08.15 更新：换用 [go-cqhttp](https://github.com/Mrs4s/go-cqhttp/)，请将主程序及配置文件放置在项目根目录下。
 
 - 将项目根目录下的 `config.py.sample` 重命名为 `config.py` 并完成以下配置。
 
@@ -44,7 +44,8 @@ COMMAND_START = {'', '/', '$'} # 命令的起始字符，默认为空字符、/ 
 API_ROOT = 'http://127.0.0.1:5700' # 调用 CQHTTP API 所指定的 IP 和端口，注意要与 CQHTTP 配置一致，默认为 127.0.0.1:5700
 APP_ID = '' # 调用腾讯 AI 功能的 APPID
 APP_KEY = '' # 调用腾讯 AI 功能的 APPKEY
-IMG_DIR = r'' # CoolQ 图片消息存放路径，例如 D:\CoolQ Pro\data\image
+IMG_DIR = r'' # 图片消息文件存放路径，例如 data/images
+BAYES = False # 是否开启贝叶斯文本分类模式进行垃圾文本信息过滤
 ```
 
 ## 功能模块
