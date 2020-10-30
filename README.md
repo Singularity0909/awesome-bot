@@ -1,4 +1,4 @@
-# 一款基于 NoneBot 的多功能 QQ 聊天机器人
+![awesome-bot](https://socialify.git.ci/Singularity0909/awesome-bot/image?description=1&font=Inter&forks=1&issues=1&language=1&logo=https%3A%2F%2Fdocs.nonebot.dev%2Flogo.png&owner=1&pattern=Circuit%20Board&stargazers=1&theme=Light)
 
 这个项目作为 2019-2020 第二学期数据结构课程设计大作业选题，由我的同学 [@8421BCD](https://github.com/8421BCD) 、 [@HoralG](https://github.com/HoralG) 和我 [@Singularity0909](https://github.com/Singularity0909/) 共同完成，是一款基于 NoneBot 的功能型 QQ 聊天机器人核心，具有智能闲聊、过滤有害信息、提供天气预报查询服务等常用功能，目前以机器人方天宇 (QQ: `2737676753`) 作为表现层。
 
